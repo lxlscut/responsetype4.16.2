@@ -19,8 +19,6 @@ public class Mexception extends Exception implements errorp {
         this.seterrormsg(msg);
     }
 
-
-
     @Override
     public int geterrcode() {
         return this.err.geterrcode();
@@ -33,7 +31,7 @@ public class Mexception extends Exception implements errorp {
 
     @Override
     public errorp seterrormsg(String msg) {
-        this.seterrormsg(msg);
-        return this.err;
+        this.err.seterrormsg(msg);
+        return this;
     }
 }

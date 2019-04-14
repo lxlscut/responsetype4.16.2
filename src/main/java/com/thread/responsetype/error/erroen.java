@@ -1,10 +1,9 @@
 package com.thread.responsetype.error;
 
 public enum erroen implements errorp{
-    PARMETER_VALIDATION_ERROR(000001,"参数错误"),
+    PARMETER_VALIDATION_ERROR(00001,"参数错误"),
     USER_NOT_EXIST(10001,"用户不存在"),
-    UNKNOW_ERROR(20001,"发生未知错误")
-    ;
+    UNKNOW_ERROR(20001,"发生未知错误");
     private int errorcode;
     private String errmsg;
 

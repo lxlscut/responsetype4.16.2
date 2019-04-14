@@ -63,4 +63,16 @@ public class Info {
     public void setThirdPartyId(String thirdPartyId) {
         this.thirdPartyId = thirdPartyId;
     }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gerder=" + gerder +
+                ", telephone=" + telephone +
+                ", registerMode='" + registerMode + '\'' +
+                ", thirdPartyId='" + thirdPartyId + '\'' +
+                '}';
+    }
 }

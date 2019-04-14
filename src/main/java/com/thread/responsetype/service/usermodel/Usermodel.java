@@ -1,18 +1,27 @@
 package com.thread.responsetype.service.usermodel;
 
+import javax.validation.constraints.*;
+
 public class Usermodel {
+
     private Integer id;
 
+    @NotBlank(message = "用户名不能为空")
     private String name;
 
+    @NotNull(message = "性别不能不填")
     private Integer gerder;
 
+    @NotNull(message = "手机号不能为空")
+    @Min(value = 99999,message = "手机号位数过小")
+    @Max(value = 999999,message = "手机号过大")
     private Integer telephone;
 
     private String registerMode;
 
     private String thirdPartyId;
 
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     public Integer getId() {

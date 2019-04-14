@@ -34,7 +34,4 @@ public class responsetype {
         rt.setData(result);
         return rt;
     }
-
-
-
 }

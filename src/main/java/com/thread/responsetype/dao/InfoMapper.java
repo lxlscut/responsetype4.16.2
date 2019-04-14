@@ -15,6 +15,8 @@ public interface InfoMapper {
 
     Info selectByPrimaryKey(Integer id);
 
+    Info selectBytelphone(Integer telphone);
+
     int updateByPrimaryKeySelective(Info record);
 
     int updateByPrimaryKey(Info record);
