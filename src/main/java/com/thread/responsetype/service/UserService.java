@@ -4,7 +4,7 @@ import com.thread.responsetype.entity.Info;
 import com.thread.responsetype.exception.Mexception;
 import com.thread.responsetype.service.usermodel.Usermodel;
 
-public interface Service {
+public interface UserService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Info record);

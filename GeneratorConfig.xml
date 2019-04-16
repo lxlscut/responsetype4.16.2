@@ -26,27 +26,27 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <!-- 配置dao目录 -->
-<!--        <javaClientGenerator type="XMLMAPPER" targetPackage="com.thread.responsetype.dao" targetProject="src/main/java">-->
-<!--            <property name="enableSubPackages" value="true"/>-->
-<!--        </javaClientGenerator>-->
+<!--         配置dao目录 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.thread.responsetype.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
 
         <!-- tableName是数据库中的表名，domainObjectName是生成的JAVA模型名，后面的参数不用改，要生成更多的表就在下面继续加table标签 -->
-        <table tableName="Itemdescription"
-               domainObjectName="Item"
+        <table tableName="oder_info"
+               domainObjectName="orderinfo"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"
         />
-        <table tableName="itemstock"
-               domainObjectName="Stock"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false"
-        ></table>
+<!--        <table tableName="itemstock"-->
+<!--               domainObjectName="Stock"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"-->
+<!--        ></table>-->
     </context>
 </generatorConfiguration>

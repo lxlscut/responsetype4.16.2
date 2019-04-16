@@ -5,6 +5,7 @@ import com.thread.responsetype.dao.PasswordMapper;
 import com.thread.responsetype.entity.Info;
 import com.thread.responsetype.entity.Password;
 import com.thread.responsetype.exception.Mexception;
+import com.thread.responsetype.service.UserService;
 import com.thread.responsetype.service.usermodel.Usermodel;
 import com.thread.responsetype.validation.ValidationResult;
 import com.thread.responsetype.validation.ValidatorImpl;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.thread.responsetype.error.erroen;
 @Service
-public class ServiceImpl implements com.thread.responsetype.service.Service {
+public class ServiceImpl implements UserService {
 @Autowired
 private InfoMapper in;
 @Autowired

@@ -11,7 +11,8 @@ public interface itemservice {
     //浏览商品列表
     List<Itemmodel> listitem();
     //商品详情浏览
-    Itemmodel getitembyid(Integer id);
-
+    Itemmodel getitembyid(Integer id) throws Mexception;
+    //商品扣减操作
+    boolean stockdecrease(Integer itemid,Integer amount);
 
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -56,12 +57,22 @@ public class ItemController extends Basecontroller{
 
     @RequestMapping("/getitem")
     @ResponseBody
-    public  responsetype getitem(@RequestParam (name = "id") int id){
+    public  responsetype getitem(@RequestParam (name = "id") int id) throws Mexception {
         responsetype rt = new responsetype();
         Itemmodel itemmodel = new Itemmodel();
         itemmodel = itemserv.getitembyid(id);
         ItemView itemView = this.modeltoview(itemmodel);
         return rt.create(itemmodel);
+    }
+
+    @RequestMapping("/getitem1")
+    public  String getitem1(@RequestParam (name = "id") int id, Map<String,Object> data) throws Mexception {
+        responsetype rt = new responsetype();
+        Itemmodel itemmodel = new Itemmodel();
+        itemmodel = itemserv.getitembyid(id);
+        ItemView itemView = this.modeltoview(itemmodel);
+        data.put("DT",itemView);
+        return "shangpin";
     }
 
     //查询所有商品
@@ -79,9 +90,19 @@ public class ItemController extends Basecontroller{
     }
 
 
+
     @RequestMapping("/createview")
     public String createview(){
         return "createitem";
     }
 
+    @RequestMapping("/showview")
+    public String showview(){
+        return "itemshow";
+    }
+
+    @RequestMapping("itemshow")
+    public String itemshow(){
+        return "itemdetail";
+    }
 }

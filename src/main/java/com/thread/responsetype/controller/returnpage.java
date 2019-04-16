@@ -2,14 +2,13 @@ package com.thread.responsetype.controller;
 
 import com.thread.responsetype.exception.Mexception;
 import com.thread.responsetype.response.responsetype;
-import com.thread.responsetype.service.Service;
+import com.thread.responsetype.service.UserService;
 import com.thread.responsetype.service.usermodel.Usermodel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
@@ -17,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
 public class returnpage extends Basecontroller{
 
     @Autowired
-    private Service serv;
+    private UserService serv;
     @Autowired
     private HttpServletRequest httpServletRequest;
 

@@ -4,16 +4,15 @@ import com.thread.responsetype.controller.viewobject.Userview;
 import com.thread.responsetype.error.erroen;
 import com.thread.responsetype.exception.Mexception;
 import com.thread.responsetype.response.responsetype;
-import com.thread.responsetype.service.Service;
+import com.thread.responsetype.service.UserService;
 import com.thread.responsetype.service.usermodel.Usermodel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.BASE64Encoder;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
@@ -23,7 +22,7 @@ import java.util.Random;
 @CrossOrigin(allowCredentials = "true",allowedHeaders = "*")
 public class getuser extends Basecontroller {
     @Autowired
-    private Service serv;
+    private UserService serv;
     @Autowired
     //对应当前用户的请求，自动可以解决并发问题
     private  HttpServletRequest httpServletRequest;

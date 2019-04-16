@@ -56,6 +56,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.thread.responsetype.entity.Stock">
     update itemstock
     <set>
@@ -68,10 +69,19 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
   <update id="updateByPrimaryKey" parameterType="com.thread.responsetype.entity.Stock">
     update itemstock
     set stock = #{stock,jdbcType=INTEGER},
       item_id = #{itemId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="decreasestock">
+    update itemstock
+    set stock = stock - #{amount},
+    where item_id = #{item_id} and  stock>=#{amount}
+  </update>
+
 </mapper>

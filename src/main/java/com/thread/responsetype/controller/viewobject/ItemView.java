@@ -6,19 +6,19 @@ import javax.validation.constraints.NotNull;
 
 public class ItemView {
     //商品id
-    private Integer id;
+    public Integer id;
     //商品名称
-    private String title;
+    public String title;
     //商品价格
-    private double price;
+    public double price;
     //商品的库存
-    private Integer stock;
+    public Integer stock;
     //商品的描述
-    private String description;
+    public String description;
     //商品的销量
-    private Integer sale;
+    public Integer sale;
     //商品的描述url
-    private String url;
+    public String url;
 
     public Integer getId() {
         return id;

@@ -62,13 +62,31 @@ public class ItemServiceImpl implements itemservice {
     }
 
     @Override
-    public Itemmodel getitembyid(Integer id) {
+    public Itemmodel getitembyid(Integer id) throws Mexception {
         Item IT = new Item();
         Stock st = new Stock();
         IT = im.selectByPrimaryKey(id);
+        System.out.println(IT.getId());
+        if(IT == null){
+            throw new Mexception(erroen.PARMETER_VALIDATION_ERROR,"商品不存在");
+        }
         st = sm.selectByItemId(IT.getId());
         Itemmodel  itemmodel = convertmodel(IT,st);
+        System.out.println(itemmodel);
         return itemmodel;
+    }
+
+    @Override
+    @Transactional
+    public boolean stockdecrease(Integer itemid, Integer amount) {
+        int row = sm.decreasestock(itemid,amount);
+        //更新成功影响的列数大于零，否则为0
+        if(row>0){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 
@@ -94,7 +112,7 @@ public class ItemServiceImpl implements itemservice {
     private  Itemmodel convertmodel(Item item,Stock stock){
         Itemmodel itemmodel = new Itemmodel();
         BeanUtils.copyProperties(item,itemmodel);
-        BeanUtils.copyProperties(stock,itemmodel);
+        itemmodel.setStock(stock.getStock());
         return itemmodel;
     }
 

@@ -35,6 +35,7 @@
     delete from userinfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.thread.responsetype.entity.Info">
     insert into userinfo (id, name, gerder, 
       telephone, register_mode, third_party_id
@@ -43,6 +44,7 @@
       #{telephone,jdbcType=INTEGER}, #{registerMode,jdbcType=VARCHAR}, #{thirdPartyId,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="com.thread.responsetype.entity.Info" keyProperty="id" useGeneratedKeys="true">
     insert into userinfo
     <trim prefix="(" suffix=")" suffixOverrides=",">

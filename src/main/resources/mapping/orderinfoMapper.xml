@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thread.responsetype.dao.orderinfoMapper">
+  <resultMap id="BaseResultMap" type="com.thread.responsetype.entity.orderinfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="itemid" jdbcType="INTEGER" property="itemid" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="itemprice" jdbcType="DOUBLE" property="itemprice" />
+    <result column="oderprice" jdbcType="DOUBLE" property="oderprice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, itemid, amount, itemprice, oderprice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from oder_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from oder_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.thread.responsetype.entity.orderinfo">
+    insert into oder_info (id, userid, itemid, 
+      amount, itemprice, oderprice
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, #{itemid,jdbcType=INTEGER}, 
+      #{amount,jdbcType=INTEGER}, #{itemprice,jdbcType=DOUBLE}, #{oderprice,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.thread.responsetype.entity.orderinfo">
+    insert into oder_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="itemid != null">
+        itemid,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="itemprice != null">
+        itemprice,
+      </if>
+      <if test="oderprice != null">
+        oderprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="itemprice != null">
+        #{itemprice,jdbcType=DOUBLE},
+      </if>
+      <if test="oderprice != null">
+        #{oderprice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.thread.responsetype.entity.orderinfo">
+    update oder_info
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null">
+        itemid = #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="itemprice != null">
+        itemprice = #{itemprice,jdbcType=DOUBLE},
+      </if>
+      <if test="oderprice != null">
+        oderprice = #{oderprice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.thread.responsetype.entity.orderinfo">
+    update oder_info
+    set userid = #{userid,jdbcType=INTEGER},
+      itemid = #{itemid,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=INTEGER},
+      itemprice = #{itemprice,jdbcType=DOUBLE},
+      oderprice = #{oderprice,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
