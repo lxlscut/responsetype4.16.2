@@ -14,7 +14,7 @@ public class ValidatorImpl implements InitializingBean {
     private Validator validator;
     //对对象进行验证
     public ValidationResult vr(Object bean){
-     final  ValidationResult VR = new ValidationResult();
+      final   ValidationResult VR = new ValidationResult();
         //调用validator校验器来对bean进行校验，结果为一个set
         Set<ConstraintViolation<Object>> constraintViolationSet = validator.validate(bean);
         if(constraintViolationSet.size()>0){

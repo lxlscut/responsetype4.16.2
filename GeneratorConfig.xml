@@ -6,6 +6,7 @@
     <!-- mysql的jar文件路径 -->
     <classPathEntry location="C:\Program Files (x86)\MySQL\Connector J 8.0\mysql-connector-java-8.0.15.jar"/>
     <context id="Mysql" targetRuntime="MyBatis3">
+
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
@@ -26,21 +27,21 @@
         </sqlMapGenerator>
 
         <!-- 配置dao目录 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.thread.responsetype.dao" targetProject="src/main/java">
-            <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
+<!--        <javaClientGenerator type="XMLMAPPER" targetPackage="com.thread.responsetype.dao" targetProject="src/main/java">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </javaClientGenerator>-->
 
         <!-- tableName是数据库中的表名，domainObjectName是生成的JAVA模型名，后面的参数不用改，要生成更多的表就在下面继续加table标签 -->
-        <table tableName="userinfo"
-               domainObjectName="Info"
+        <table tableName="Itemdescription"
+               domainObjectName="Item"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"
         />
-        <table tableName="user_security"
-               domainObjectName="Password"
+        <table tableName="itemstock"
+               domainObjectName="Stock"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

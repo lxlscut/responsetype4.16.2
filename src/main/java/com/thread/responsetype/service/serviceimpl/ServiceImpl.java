@@ -83,18 +83,16 @@ private ValidatorImpl validator;
 
         }
 
-
-
-
-
         Info info = new Info();
         Password password = new Password();
+
         info = modelconvertinfo(usermodel);
+
+        in.insertSelective(info);
+        usermodel.setId(info.getId());
         password = modelconvertpassword(usermodel);
         System.out.println(info);
         System.out.println(password);
-        in.insertSelective(info);
-        usermodel.setId(info.getId());
         pm.insertSelective(password);
     }
 
